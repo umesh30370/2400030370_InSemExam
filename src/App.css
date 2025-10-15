@@ -1,0 +1,164 @@
+/* App.css - styles for the interactive calendar */
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-opaque: rgba(37,99,235,0.08);
+  --danger: #ef4444;
+}
+
+body, html, #root{
+  height: 100%;
+}
+
+.app-root{
+  font-family: Inter, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  max-width: 900px;
+  margin: 28px auto;
+  background: var(--bg);
+  padding: 20px;
+  border-radius: 10px;
+}
+
+header h1{
+  margin: 0 0 6px 0;
+}
+
+.muted{
+  color: var(--muted);
+  margin: 0 0 12px 0;
+}
+
+.calendar{
+  background: var(--card);
+  padding: 14px;
+  border-radius: 8px;
+  box-shadow: 0 1px 2px rgba(16,24,40,0.04);
+}
+
+.month-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:10px;
+}
+
+.weekdays{
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap:6px;
+  color:var(--muted);
+  font-size:13px;
+  margin-bottom:8px;
+}
+
+.weekday{ text-align:center }
+
+.days-grid{
+  display:grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap:6px;
+}
+
+.day-cell{
+  aspect-ratio: 1/1;
+  border: 1px solid transparent;
+  background: transparent;
+  border-radius: 6px;
+  padding: 6px;
+  cursor: pointer;
+  display:flex;
+  align-items:flex-start;
+  justify-content:flex-end;
+  position:relative;
+}
+
+.day-cell.empty{
+  background:transparent;
+  cursor:default;
+}
+
+.day-cell .date-number{
+  font-weight:600;
+  color:#111827;
+}
+
+.day-cell .event-dot{
+  position:absolute;
+  left:8px;
+  top:8px;
+  color:var(--accent);
+  font-size:18px;
+  line-height:1;
+}
+
+.day-cell:hover:not(.empty){
+  background: var(--accent-opaque);
+}
+
+.day-cell.selected{
+  background: linear-gradient(180deg, rgba(37,99,235,0.12), rgba(37,99,235,0.06));
+  border:1px solid rgba(37,99,235,0.2);
+}
+
+.events-panel{
+  margin-top:14px;
+  background: var(--card);
+  padding:12px;
+  border-radius:8px;
+}
+
+.events-list{ list-style:none; padding:0; margin:8px 0 0 0 }
+.event-item{ padding:8px; border-bottom:1px solid #f3f4f6 }
+.event-item:last-child{ border-bottom:none }
+.event-title{ font-weight:700 }
+.event-desc{ color:var(--muted); font-size:14px }
+
+@media (max-width:600px){
+  .app-root{ margin:12px }
+  .day-cell{ padding:4px }
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
